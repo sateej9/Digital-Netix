@@ -20,24 +20,29 @@
         border-bottom:1px solid rgba(255,255,255,0.04);
       }
       .nav__inner{ max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-      .brand{ font-weight:700; letter-spacing:0.4px; color:var(--accent); text-decoration:none; font-size:1.05rem; }
+      .brand{ font-weight:700; letter-spacing:0.4px; color:var(--accent); text-decoration:none; font-size:1.05rem; transition: transform 0.3s ease-in-out; }
+      .brand:hover { transform: scale(1.05); }
       .nav-links{ display:flex; gap:18px; align-items:center; }
-      .nav-links a{ color:var(--muted); text-decoration:none; font-size:0.95rem; padding:6px 8px; border-radius:6px; }
+      .nav-links a{ color:var(--muted); text-decoration:none; font-size:0.95rem; padding:6px 8px; border-radius:6px; transition: all 0.3s ease-in-out; }
       .nav-links a:hover{ color:#fff; background:rgba(255,255,255,0.03); }
-      .cta{ background:var(--accent); color:#fff; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:600; }
+      .cta{ background:var(--accent); color:#fff; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:600; transition: all 0.3s ease-in-out; }
+      .cta:hover { transform: scale(1.05); background-color: #ff8120; }
       /* mobile */
-      .menu-toggle{ display:none; }
-      .hamburger{ display:none; cursor:pointer; width:32px; height:32px; align-items:center; justify-content:center; background:transparent; border:none; color:#fff; }
+      .menu-toggle{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+      .hamburger{ display:none; cursor:pointer; width:40px; height:40px; align-items:center; justify-content:center; background:transparent; border:none; color:#fff; font-size:20px; transition: transform 0.3s ease-in-out; }
       @media (max-width:720px){
-        .nav-links{ position:absolute; left:0; right:0; top:56px; background:var(--bg); flex-direction:column; padding:12px; display:none; gap:6px; border-top:1px solid rgba(255,255,255,0.02); }
-        .menu-toggle{ display:block; }
+        .nav__inner{ position:relative; }
+        .nav-links{ position:absolute; left:12px; right:12px; top:56px; background:var(--bg); flex-direction:column; padding:12px; gap:6px; border-radius:8px; border:1px solid rgba(255,255,255,0.02); box-shadow:0 6px 18px rgba(0,0,0,0.35); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s; }
+        .menu-toggle{ position:absolute; left:-9999px; } /* remain hidden */
         .hamburger{ display:flex; }
-        .menu-toggle:checked + .nav__inner .nav-links{ display:flex; }
+        /* show menu when nav has .open class (toggled by JS) */
+        .nav.open .nav-links{ opacity: 1; visibility: visible; transform: translateY(0); }
       }
       section.hero{ background-color:var(--bg); color:white; padding:60px 20px; text-align:center; }
       section.hero h1{ font-size:3em; margin:0 0 10px; }
       section.hero p{ font-size:1.2em; margin:0 0 18px; color:var(--muted); }
-      section.hero .hero-btn{ background-color:var(--accent); color:white; padding:15px 30px; border:none; font-size:1em; border-radius:8px; cursor:pointer; }
+      section.hero .hero-btn{ background-color:var(--accent); color:white; padding:15px 30px; border:none; font-size:1em; border-radius:8px; cursor:pointer; transition: all 0.3s ease-in-out; }
+      section.hero .hero-btn:hover{ transform: scale(1.05); background-color: #ff8120; }
 
       /* Projects */
       .projects {
@@ -57,11 +62,18 @@
         border:1px solid rgba(255,255,255,0.03);
         padding:12px;
         border-radius:10px;
+        transition: all 0.3s ease-in-out;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        border-color: rgba(255,255,255,0.08);
       }
       .project-card img{ width:100%; height:130px; object-fit:cover; border-radius:8px; display:block; }
       .project-card h4{ margin:10px 0 6px; color:#fff; font-size:1rem; }
       .project-card p{ margin:0; color:var(--muted); font-size:0.95rem; }
-      .project-card a{ display:inline-block; margin-top:10px; color:var(--accent); text-decoration:none; font-weight:600; }
+      .project-card a{ display:inline-block; margin-top:10px; color:var(--accent); text-decoration:none; font-weight:600; transition: color 0.3s ease-in-out; }
+      .project-card a:hover { color: #ff8120; }
       @media (max-width:720px){
         .projects{ padding:12px; }
       }
@@ -108,6 +120,11 @@
         border-radius:10px;
         background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
         border:1px solid rgba(255,255,255,0.03);
+        transition: all 0.3s ease-in-out;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       }
       .service-card .icon { font-size:28px; margin-bottom:10px; display:inline-block; }
       .service-card h4{ margin:6px 0; color:#fff; font-size:1.05rem; }
@@ -151,6 +168,10 @@
         cursor:pointer;
         font-weight:600;
         width:max-content;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+      .contact button[type="submit"]:hover {
+        transform: scale(1.05);
       }
       .contact .info { flex:1; min-width:200px; color:var(--muted); }
       .contact .info a { color:var(--accent); text-decoration:none; }
@@ -210,11 +231,11 @@
       .footer .brand-row{ display:flex; align-items:center; gap:12px; }
       .footer .brand-row img{ height:36px; width:auto; display:block; }
       .footer .links{ display:flex; gap:18px; flex-wrap:wrap; align-items:center; }
-      .footer .links a{ color:var(--muted); text-decoration:none; font-size:0.95rem; }
+      .footer .links a{ color:var(--muted); text-decoration:none; font-size:0.95rem; transition: color 0.2s ease; }
       .footer .links a:hover{ color:#fff; }
       .footer .copyright{ font-size:0.9rem; color:var(--muted); margin-top:4px; }
       .footer .social{ display:flex; gap:10px; align-items:center; }
-      .footer .social a{ color:var(--muted); text-decoration:none; font-size:0.95rem; }
+      .footer .social a{ color:var(--muted); text-decoration:none; font-size:0.95rem; transition: color 0.2s ease; }
       .footer .social a:hover{ color:#fff; }
       @media (max-width:720px){
         .footer-inner{ flex-direction:column; align-items:center; text-align:center; }
@@ -229,18 +250,17 @@
     <a class="brand" href="#">
       <img src="photo/logo.png" alt="Digital Netflix" style="height: 50px; display:block;">
     </a>
-    <button class="hamburger" aria-controls="primary-navigation" aria-expanded="false" onclick="document.getElementById('menu-toggle').click();">
-      ☰
-    </button>
-    <div id="primary-navigation" class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a class="cta" href="#solutions">Explore</a>
-    </div>
-  </div>
-</nav>
+    <!-- label toggles the hidden checkbox (accessible toggle) -->
+    <label class="hamburger" for="menu-toggle" aria-label="Toggle menu">☰</label>
+     <div id="primary-navigation" class="nav-links">
+       <a href="#home">Home</a>
+       <a href="#projects">Projects</a>
+       <a href="#about">About</a>
+       <a href="#contact">Contact</a>
+       <a class="cta" href="#solutions">Explore</a>
+     </div>
+   </div>
+ </nav>
 
 <section class="hero">
   <h1>Welcome to Digital Netix</h1>
@@ -295,7 +315,7 @@
     <div class="list" aria-hidden="false">
       <div class="item">User‑first design</div>
       <div class="item">Fast iteration</div>
-      <div class="item">Data‑driven decisions</div>
+      <div class="item">Data"‑"driven decisions</div>
     </div>
     <p style="margin-top:12px;"><a class="cta" href="#contact">Get in touch</a></p>
   </div>
@@ -365,12 +385,34 @@
 </section>
 
 <script>
-  // Simple client-side behavior for demo: prevent real submit and show confirmation
+  // Contact form submission
   document.getElementById('contact-form')?.addEventListener('submit', function(e){
     e.preventDefault();
     document.getElementById('form-msg').textContent = "Thanks — we'll get back to you soon.";
     this.reset();
   });
+
+  // Mobile navigation toggle
+  (function(){
+    const nav = document.querySelector('.nav');
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', function() {
+        nav.classList.toggle('open');
+      });
+    }
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+        }
+      });
+    });
+  })();
 </script>
 
 <!-- Footer -->
