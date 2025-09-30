@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digital Netix — Freelance creative studio for branding, logos, design, and marketing.">
-<link rel="icon" href="photo/logo.png" type="image/png">
-
     <title>Digital Netflix</title>
     <style>
       :root{
@@ -214,7 +212,35 @@
         .ceo .info{ text-align:center; }
       }
 
-      /* Footer */
+        /* Team */
+        .team {
+          max-width:1100px;
+          margin:28px auto;
+          padding:22px;
+        }
+        .team h3 { margin:0 0 12px; color:#fff; }
+        .team-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+          gap:14px;
+          margin-top:12px;
+        }
+        .member-card{
+          background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+          border:1px solid rgba(255,255,255,0.03);
+          padding:16px;
+          border-radius:12px;
+          text-align:center;
+        }
+        .member-photo{ width:96px; height:96px; border-radius:999px; overflow:hidden; margin:0 auto 12px; background:#222; }
+        .member-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+        .member-name{ font-weight:700; color:#fff; margin:6px 0 4px; }
+        .member-role{ color:var(--muted); font-size:0.95rem; margin-bottom:8px; }
+        .member-bio{ color:var(--muted); font-size:0.92rem; line-height:1.4; }
+
+    .team p { color:var(--muted); margin:8px 0 0; }
+
+        /* Footer */
       .footer{
         background: linear-gradient(180deg, rgba(20,20,20,0.95), rgba(16,16,16,0.95));
         border-top:1px solid rgba(255,255,255,0.03);
@@ -258,6 +284,7 @@
      <div id="primary-navigation" class="nav-links">
        <a href="#home">Home</a>
        <a href="#projects">Projects</a>
+  <a href="#team">Team</a>
        <a href="#about">About</a>
        <a href="#contact">Contact</a>
        <a class="cta" href="#solutions">Explore</a>
@@ -311,6 +338,34 @@
 </section>
 
 <!-- About section -->
+<!-- Team section -->
+<section id="team" class="team" aria-labelledby="team-heading">
+  <h3 id="team-heading">Meet the Team</h3>
+  <p>A small, focused team of designers and developers building delightful products.</p>
+  <div class="team-grid">
+    <article class="member-card" aria-labelledby="m-1">
+      <div class="member-photo"><img src="photo/ceo.jpg"alt="kundan shivani"></div>
+      <div id="m-1" class="member-name">Kundan Shivani</div>
+      <div class="member-role">Founder & CEO</div>
+      <div class="member-bio">Product designer and engineer focused on user-first experiences and fast iteration.</div>
+    </article>
+
+    <article class="member-card" aria-labelledby="m-2">
+      <div class="member-photo"><img src="photo/ceo.jpg"alt="Lead Designer"></div>
+      <div id="m-2" class="member-name">Kundan Shivani</div>
+      <div class="member-role">Lead Designer</div>
+      <div class="member-bio">Crafts visual identities and marketing assets that resonate with audiences.</div>
+    </article>
+
+    <article class="member-card" aria-labelledby="m-3">
+      <div class="member-photo"><img src="photo/sateej.jpg"></div>
+      <div id="m-3" class="member-name">Sateej Mathrani</div>
+      <div class="member-role">Frontend Developer</div>
+      <div class="member-bio">Builds fast, accessible interfaces and helps bridge design and code.</div>
+    </article>
+  </div>
+</section>
+
 <section id="about" class="about" aria-labelledby="about-heading">
   <div class="content">
     <h3 id="about-heading">About Digital Netix</h3>
@@ -380,7 +435,7 @@
   <div class="info" aria-hidden="false">
     <h4 style="margin:0 0 8px; color:#fff;">Contact details</h4>
     <p style="margin:6px 0;">Email: <a href="mailto:digitalnetix2025@gmail.com">digitalnetix2025@gmail.com</a></p>
-    <p style="margin:6px 0;">Phone: <a href="tel:+923462868776">Call ME</a></p>
+    <p style="margin:6px 0;">Phone: <a href="tel:+923462868776">+92 346-2868776</a></p>
     <p style="margin:6px 0;">Location: <address>North Colony Mithi Tharparkar</address></p>
     
     <p style="margin-top:12px;"><a class="cta" style="color: #e6e6e6;" href="#projects">See our work</a></p>
@@ -452,6 +507,3 @@
 
 </body>
 </html>
-
-
-
