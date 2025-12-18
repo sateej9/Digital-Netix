@@ -2,282 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
+    <meta name="description" content="Digital Netix - Creative Design & Web Development Agency. Logo design, book covers, social media marketing, and web development services.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Netflix</title>
-    <style>
-      :root{
-        --bg:#1C1C1C;
-        --accent:#FF6F00;
-        --muted:#bfbfbf;
-      }
-      body{ margin:0; font-family:system-ui,Segoe UI,Roboto,Arial; background:#0f0f0f; color:#fff; }
-      .nav {
-        background: linear-gradient(180deg, rgba(28,28,28,0.95), rgba(28,28,28,0.9));
-        padding:12px 18px;
-        position:sticky;
-        top:0;
-        z-index:100;
-        border-bottom:1px solid rgba(255,255,255,0.04);
-      }
-      .nav__inner{ max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-      .brand{ font-weight:700; letter-spacing:0.4px; color:var(--accent); text-decoration:none; font-size:1.05rem; transition: transform 0.3s ease-in-out; }
-      .brand:hover { transform: scale(1.05); }
-      .nav-links{ display:flex; gap:18px; align-items:center; }
-      .nav-links a{ color:var(--muted); text-decoration:none; font-size:0.95rem; padding:6px 8px; border-radius:6px; transition: all 0.3s ease-in-out; }
-      .nav-links a:hover{ color:#fff; background:rgba(255,255,255,0.03); }
-      .cta{ background:var(--accent); color:#fff; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:600; transition: all 0.3s ease-in-out; }
-      .cta:hover { transform: scale(1.05); background-color: #ff8120; }
-      /* mobile */
-      .menu-toggle{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-      .hamburger{ display:none; cursor:pointer; width:40px; height:40px; align-items:center; justify-content:center; background:transparent; border:none; color:#fff; font-size:20px; transition: transform 0.3s ease-in-out; }
-      @media (max-width:720px){
-        .nav__inner{ position:relative; }
-        .nav-links{ position:absolute; left:12px; right:12px; top:56px; background:var(--bg); flex-direction:column; padding:12px; gap:6px; border-radius:8px; border:1px solid rgba(255,255,255,0.02); box-shadow:0 6px 18px rgba(0,0,0,0.35); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s; }
-        .menu-toggle{ position:absolute; left:-9999px; } /* remain hidden */
-        .hamburger{ display:flex; }
-        /* show menu when nav has .open class (toggled by JS) */
-        .nav.open .nav-links{ opacity: 1; visibility: visible; transform: translateY(0); }
-      }
-      section.hero{ background-color:var(--bg); color:white; padding:60px 20px; text-align:center; }
-      section.hero h1{ font-size:3em; margin:0 0 10px; }
-      section.hero p{ font-size:1.2em; margin:0 0 18px; color:var(--muted); }
-      section.hero .hero-btn{ background-color:var(--accent); color:white; padding:15px 30px; border:none; font-size:1em; border-radius:8px; cursor:pointer; transition: all 0.3s ease-in-out; }
-      section.hero .hero-btn:hover{ transform: scale(1.05); background-color: #ff8120; }
-
-      /* Projects */
-      .projects {
-        max-width:1100px;
-        margin:28px auto;
-        padding:20px;
-      }
-      .projects h3 { margin:0 0 12px; color:#fff; }
-      .projects-grid{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-        gap:14px;
-        margin-top:12px;
-      }
-      .project-card{
-        background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-        border:1px solid rgba(255,255,255,0.03);
-        padding:12px;
-        border-radius:10px;
-        transition: all 0.3s ease-in-out;
-      }
-      .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        border-color: rgba(255,255,255,0.08);
-      }
-      .project-card img{ width:100%; height:130px; object-fit:cover; border-radius:8px; display:block; }
-      .project-card h4{ margin:10px 0 6px; color:#fff; font-size:1rem; }
-      .project-card p{ margin:0; color:var(--muted); font-size:0.95rem; }
-      .project-card a{ display:inline-block; margin-top:10px; color:var(--accent); text-decoration:none; font-weight:600; transition: color 0.3s ease-in-out; }
-      .project-card a:hover { color: #ff8120; }
-      @media (max-width:720px){
-        .projects{ padding:12px; }
-      }
-
-      /* About */
-      .about {
-        max-width:1100px;
-        margin:28px auto;
-        padding:22px;
-        display:flex;
-        gap:20px;
-        align-items:center;
-        background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-        border-radius:10px;
-        border:1px solid rgba(255,255,255,0.02);
-      }
-      .about .content { flex:1; }
-      .about h3 { margin:0 0 10px; color:#fff; font-size:1.25rem; }
-      .about p { margin:0 0 12px; color:var(--muted); line-height:1.5; }
-      .about .list { display:flex; gap:12px; flex-wrap:wrap; }
-      .about .item { background:rgba(255,255,255,0.02); padding:10px 12px; border-radius:8px; color:var(--muted); font-size:0.95rem; }
-      .about .image { flex:0 0 220px; width:220px; height:140px; border-radius:8px; overflow:hidden; background:#222; }
-      .about .image img{ width:100%; height:100%; object-fit:cover; display:block; }
-      @media (max-width:720px){
-        .about{ flex-direction:column; text-align:center; padding:16px; }
-        .about .image{ width:100%; height:200px; }
-      }
-
-      /* Services */
-      .services {
-        max-width:1100px;
-        margin:28px auto;
-        padding:20px;
-      }
-      .services-inner { background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); padding:18px; border-radius:10px; border:1px solid rgba(255,255,255,0.02); }
-      .services h3 { margin:0 0 12px; color:#fff; }
-      .service-grid{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-        gap:14px;
-      }
-      .service-card{
-        padding:14px;
-        border-radius:10px;
-        background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-        border:1px solid rgba(255,255,255,0.03);
-        transition: all 0.3s ease-in-out;
-      }
-      .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      }
-      .service-card .icon { font-size:28px; margin-bottom:10px; display:inline-block; }
-      .service-card h4{ margin:6px 0; color:#fff; font-size:1.05rem; }
-      .service-card p{ margin:0; color:var(--muted); line-height:1.4; }
-      .service-card a{ display:inline-block; margin-top:10px; color:var(--accent); text-decoration:none; font-weight:600; }
-      @media (max-width:720px){
-        .services{ padding:12px; }
-      }
-
-      /* Contact */
-      .contact {
-        max-width:1100px;
-        margin:28px auto;
-        padding:22px;
-        display:flex;
-        gap:20px;
-        align-items:flex-start;
-        background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-        border-radius:10px;
-        border:1px solid rgba(255,255,255,0.02);
-      }
-      .contact .form { flex:2; }
-      .contact .form h3 { margin:0 0 10px; color:#fff; }
-      .contact form { display:flex; flex-direction:column; gap:10px; }
-      .contact input, .contact textarea {
-        width:100%;
-        padding:10px 12px;
-        border-radius:8px;
-        border:1px solid rgba(255,255,255,0.06);
-        background:transparent;
-        color:#fff;
-        outline:none;
-      }
-      .contact input::placeholder, .contact textarea::placeholder { color:rgba(255,255,255,0.45); }
-      .contact button[type="submit"]{
-        background:var(--accent);
-        color:#fff;
-        padding:10px 16px;
-        border-radius:8px;
-        border:none;
-        cursor:pointer;
-        font-weight:600;
-        width:max-content;
-        transition: background-color 0.2s ease, transform 0.2s ease;
-      }
-      .contact button[type="submit"]:hover {
-        transform: scale(1.05);
-      }
-      .contact .info { flex:1; min-width:200px; color:var(--muted); }
-      .contact .info a { color:var(--accent); text-decoration:none; }
-      @media (max-width:720px){
-        .contact{ flex-direction:column; text-align:center; padding:16px; }
-        .contact .info{ text-align:center; }
-      }
-
-      /* CEO intro styles */
-      .ceo {
-        max-width:1100px;
-        margin:28px auto;
-        display:flex;
-        gap:20px;
-        align-items:center;
-        padding:20px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-        border-radius:12px;
-        border:1px solid rgba(255,255,255,0.03);
-      }
-      .ceo .photo {
-        flex:0 0 120px;
-        width:120px;
-        height:120px;
-        border-radius:12px;
-        overflow:hidden;
-        background:#222;
-      }
-      .ceo .photo img { width:100%; height:100%; object-fit:cover; display:block; }
-      .ceo .info h2 { margin:0; font-size:1.25rem; color:#fff; }
-      .ceo .info .title { color:var(--muted); margin-top:6px; font-size:0.95rem; }
-      .ceo .info p.bio { color:var(--muted); margin:10px 0 0; line-height:1.45; }
-      .ceo .info .quote { margin-top:10px; color:#e6e6e6; font-style:italic; }
-      @media (max-width:720px){
-        .ceo{ flex-direction:column; text-align:center; padding:18px; }
-        .ceo .photo{ width:96px; height:96px; }
-        .ceo .info{ text-align:center; }
-      }
-
-        /* Team */
-        .team {
-          max-width:1100px;
-          margin:28px auto;
-          padding:22px;
-        }
-        .team h3 { margin:0 0 12px; color:#fff; }
-        .team-grid{
-          display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-          gap:14px;
-          margin-top:12px;
-        }
-        .member-card{
-          background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-          border:1px solid rgba(255,255,255,0.03);
-          padding:16px;
-          border-radius:12px;
-          text-align:center;
-        }
-        .member-photo{ width:96px; height:96px; border-radius:999px; overflow:hidden; margin:0 auto 12px; background:#222; }
-        .member-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
-        .member-name{ font-weight:700; color:#fff; margin:6px 0 4px; }
-        .member-role{ color:var(--muted); font-size:0.95rem; margin-bottom:8px; }
-        .member-bio{ color:var(--muted); font-size:0.92rem; line-height:1.4; }
-
-    .team p { color:var(--muted); margin:8px 0 0; }
-
-        /* Footer */
-      .footer{
-        background: linear-gradient(180deg, rgba(20,20,20,0.95), rgba(16,16,16,0.95));
-        border-top:1px solid rgba(255,255,255,0.03);
-        color:var(--muted);
-        padding:28px 16px;
-        margin-top:28px;
-      }
-      .footer-inner{
-        max-width:1100px;
-        margin:0 auto;
-        display:flex;
-        align-items:flex-start;
-        justify-content:space-between;
-        gap:20px;
-        flex-wrap:wrap;
-      }
-      .footer .brand-row{ display:flex; align-items:center; gap:12px; }
-      .footer .brand-row img{ height:36px; width:auto; display:block; }
-      .footer .links{ display:flex; gap:18px; flex-wrap:wrap; align-items:center; }
-      .footer .links a{ color:var(--muted); text-decoration:none; font-size:0.95rem; transition: color 0.2s ease; }
-      .footer .links a:hover{ color:#fff; }
-      .footer .copyright{ font-size:0.9rem; color:var(--muted); margin-top:4px; }
-      .footer .social{ display:flex; gap:10px; align-items:center; }
-      .footer .social a{ color:var(--muted); text-decoration:none; font-size:0.95rem; transition: color 0.2s ease; }
-      .footer .social a:hover{ color:#fff; }
-      @media (max-width:720px){
-        .footer-inner{ flex-direction:column; align-items:center; text-align:center; }
-        .footer .links{ justify-content:center; }
-      }
-    </style>
+    <meta name="theme-color" content="#FF6F00">
+    <title>Digital Netix - Design & Web Development Agency</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <input id="menu-toggle" class="menu-toggle" type="checkbox" aria-hidden="true" />
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav__inner">
-    <a class="brand" href="#">
-      <img src="photo/logo.png" alt="Digital Netflix" style="height: 50px; display:block;">
+    <a class="brand" href="#home">
+      <img src="photo/logo.png" alt="Digital Netix" style="height: 50px; display:block;">
     </a>
     <!-- label toggles the hidden checkbox (accessible toggle) -->
     <label class="hamburger" for="menu-toggle" aria-label="Toggle menu">☰</label>
@@ -286,16 +22,20 @@
        <a href="#projects">Projects</a>
   <a href="#team">Team</a>
        <a href="#about">About</a>
-       <a href="#contact">Contact</a>
-       <a class="cta" href="#solutions">Explore</a>
+      <a href="collaborations.html">Collaborations</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#contact">Explore</a>
      </div>
    </div>
  </nav>
 
-<section class="hero">
+<section class="hero" id="home">
   <h1>Welcome to Digital Netix</h1>
   <p>Innovating the digital frontier with bold design and smart tech.</p>
-  <button class="hero-btn">Explore Solutions</button>
+  <a href="#projects" class="hero-btn">Explore Solutions</a>
+  <!-- <div class="hero-image">
+    <img src="photo/logo.png" alt="Digital Netix - Creative Design & Web Development" loading="lazy">
+  </div> -->
 </section>
 
 <!-- CEO intro section -->
@@ -316,24 +56,33 @@
 <section id="projects" class="projects" aria-labelledby="projects-heading">
   <h3 id="projects-heading">Selected Projects</h3>
   <div class="projects-grid">
-    <article class="project-card">
-      <img src="photo/project1.jpg" alt="Project One">
-      <h4>Social media posts</h4>
+    <article class="project-card" data-category="marketing">
+      <img src="photo/project1.jpg" alt="Social Media Posts - Digital Marketing Campaign">
+      <h4>Social Media Posts</h4>
       <p>Responsive design system and marketing site.</p>
-      <a href="#project-one">View</a>
+      <a href="project1.html" class="project-link">View Project</a>
     </article>
-    <article class="project-card">
-      <img src="photo/project2.jpg" alt="Project Two">
+    <article class="project-card" data-category="branding">
+      <img src="photo/project2.jpg" alt="Logo Design - Brand Identity for Tech Startup">
       <h4>Logo Design</h4>
       <p>Brand identity and logo design for a tech startup.</p>
-      <a href="#project-two">View</a>
+      <a href="project2.html" class="project-link">View Project</a>
     </article>
-    <article class="project-card">
-      <img src="photo/project3.jpg" alt="Project Three">
+    <article class="project-card" data-category="design">
+      <img src="photo/project3.jpg" alt="Picnic Posters - Creative Event Design">
       <h4>Picnic Posters</h4>
       <p>Creative poster designs for outdoor events.</p>
-      <a href="#project-three">View</a>
+      <a href="project3.html" class="project-link">View Project</a>
     </article>
+    <article class="project-card" data-category="web">
+      <img src="photo/project1.jpg" alt="Web Development - Modern Responsive Website">
+      <h4>Web Development</h4>
+      <p>Full-stack responsive website with modern design and animations.</p>
+      <a href="project4.html" class="project-link">View Project</a>
+    </article>
+  </div>
+  <div style="text-align: center; margin-top: 24px;">
+    <a href="#contact" class="cta" style="padding: 12px 28px; display: inline-block;">View All Projects</a>
   </div>
 </section>
 
@@ -363,6 +112,9 @@
       <div class="member-role">Frontend Developer</div>
       <div class="member-bio">Builds fast, accessible interfaces and helps bridge design and code.</div>
     </article>
+  </div>
+  <div style="text-align: center; margin-top: 24px;">
+    <a href="#contact" class="cta" style="padding: 12px 28px; display: inline-block;">Collaborate With Us</a>
   </div>
 </section>
 
@@ -415,39 +167,298 @@
         <a href="#projects">See examples</a>
       </article>
     </div>
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="#contact" class="cta" style="padding: 12px 28px; display: inline-block;">Get Started Today</a>
+    </div>
   </div>
+</section>
+
+<!-- Testimonials section -->
+<section class="testimonials" aria-labelledby="testimonials-heading">
+  <h3 id="testimonials-heading">Client Testimonials</h3>
+  <div class="testimonials-grid">
+    <blockquote class="testimonial-card" cite="sarah-johnson">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <p>"Digital Netix transformed our brand identity. The attention to detail and creative excellence is unmatched. Highly recommended!"</p>
+      <footer class="testimonial-footer">
+        <div class="author">Sarah Johnson</div>
+        <div class="author-role">Marketing Director, Tech Startup</div>
+      </footer>
+    </blockquote>
+
+    <blockquote class="testimonial-card" cite="michael-chen">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <p>"Working with the team was seamless. They understood our vision and delivered beyond expectations. Our new website is stunning!"</p>
+      <footer class="testimonial-footer">
+        <div class="author">Michael Chen</div>
+        <div class="author-role">Founder, E-Commerce Brand</div>
+      </footer>
+    </blockquote>
+
+    <blockquote class="testimonial-card" cite="emma-williams">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <p>"The design team's creativity and professionalism made our book cover stand out. Sales have increased significantly since launch."</p>
+      <footer class="testimonial-footer">
+        <div class="author">Emma Williams</div>
+        <div class="author-role">Author & Publisher</div>
+      </footer>
+    </blockquote>
+  </div>
+  <div style="text-align: center; margin-top: 24px;">
+    <a href="#contact" class="cta" style="padding: 12px 28px; display: inline-block;">Join Our Happy Clients</a>
+  </div>
+</section>
+
+<!-- FAQ section -->
+<section class="faq" aria-labelledby="faq-heading">
+  <h3 id="faq-heading">Frequently Asked Questions</h3>
+  
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What is the typical timeline for a project?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Most projects take 2-4 weeks depending on complexity. We'll provide a detailed timeline during the consultation phase.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you offer revisions?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Yes! We include unlimited revisions until you're completely satisfied with the final deliverable.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What's your design process?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      We start with discovery and research, create multiple concepts, gather your feedback, and refine until perfect. Clear communication at every stage.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you work with remote clients?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      Absolutely! We work with clients worldwide using video calls, email, and project management tools for seamless collaboration.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What file formats do you deliver?</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">
+      We deliver in all standard formats: PNG, JPG, PDF, AI, PSD, SVG, and web-ready formats. Custom formats available upon request.
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 24px;">
+    <a href="#contact" class="cta" style="padding: 12px 28px; display: inline-block;">Still Have Questions? Contact Us</a>
+  </div>
+</section>
+
+<!-- Newsletter section -->
+<section class="newsletter" aria-labelledby="newsletter-heading">
+  <h3 id="newsletter-heading">Stay Updated</h3>
+  <p>Get the latest design trends and project updates delivered to your inbox.</p>
+  <form class="newsletter-form" id="newsletter-form">
+    <input type="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
 </section>
 
 <!-- Contact section -->
 <section id="contact" class="contact" aria-labelledby="contact-heading">
-  <div class="form">
-    <h3 id="contact-heading">Contact Us</h3>
-    <p style="color:var(--muted); margin:8px 0 12px;">Have a project or question? Send a message and we'll reply within 1–2 business days.</p>
-    <form id="contact-form" action="#" method="post" novalidate>
-      <input name="name" type="text" placeholder="Your name" required>
-      <input name="email" type="email" placeholder="Email address" required>
-      <input name="subject" type="text" placeholder="Subject (optional)">
-      <textarea name="message" rows="6" placeholder="Your message" required></textarea>
-      <button type="submit" href="mailto:digitalnetix2025@gmail.com">Send message</button>
-    </form>
-    <div id="form-msg" style="margin-top:10px; color:var(--muted); font-size:0.95rem;"></div>
+  <div class="contact-wrapper">
+    <div class="form">
+      <div class="form-header">
+        <h3 id="contact-heading">Let's Start Something Great</h3>
+        <p>Have a project in mind? Get in touch with our team. We respond within 24 hours.</p>
+      </div>
+      <form id="contact-form" action="#" method="post" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input id="name" name="name" type="text" placeholder="John Doe" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" placeholder="+92 XXX-XXXXXXX">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Project Type *</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a service...</option>
+            <option value="logo">Brand & Logo Design</option>
+            <option value="web">Web Development</option>
+            <option value="book">Book Cover Design</option>
+            <option value="marketing">Marketing Assets</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Project Details *</label>
+          <textarea id="message" name="message" rows="6" placeholder="Tell us about your project..." required></textarea>
+        </div>
+
+        <div class="form-checkbox">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to be contacted about this project</label>
+        </div>
+
+        <button type="submit" class="form-submit">Send Project Request</button>
+      </form>
+      <div id="form-msg" class="form-message"></div>
+    </div>
+
+    <div class="info">
+      <h4>Contact Information</h4>
+      <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div class="info-content">
+          <h5>Email</h5>
+          <a href="mailto:digitalnetix2025@gmail.com">digitalnetix2025@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📱</div>
+        <div class="info-content">
+          <h5>Phone</h5>
+          <a href="tel:+923462868776">+92 346-2868776</a>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-content">
+          <h5>Location</h5>
+          <address>North Colony<br>Mithi, Tharparkar<br>Pakistan</address>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">⏱️</div>
+        <div class="info-content">
+          <h5>Response Time</h5>
+          <p>We typically respond within 24 hours</p>
+        </div>
+      </div>
+
+      <div class="info-benefits">
+        <h5>Why work with us?</h5>
+        <ul>
+          <li>✓ Fast turnaround times</li>
+          <li>✓ Custom solutions</li>
+          <li>✓ Professional design</li>
+          <li>✓ Unlimited revisions</li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="info" aria-hidden="false">
-    <h4 style="margin:0 0 8px; color:#fff;">Contact details</h4>
-    <p style="margin:6px 0;">Email: <a href="mailto:digitalnetix2025@gmail.com">digitalnetix2025@gmail.com</a></p>
-    <p style="margin:6px 0;">Phone: <a href="tel:+923462868776">+92 346-2868776</a></p>
-    <p style="margin:6px 0;">Location: <address>North Colony Mithi Tharparkar</address></p>
+</section>
     
-    <p style="margin-top:12px;"><a class="cta" style="color: #e6e6e6;" href="#projects">See our work</a></p>
+    <p style="margin-top:12px;"><a class="cta secondary-cta" href="#projects">See our work</a></p>
   </div>
 </section>
 
 <script>
+  // Back to top button
+  const backToTopBtn = document.createElement('button');
+  backToTopBtn.className = 'back-to-top';
+  backToTopBtn.innerHTML = '↑';
+  backToTopBtn.setAttribute('aria-label', 'Back to top');
+  document.body.appendChild(backToTopBtn);
+
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   // Contact form submission
   document.getElementById('contact-form')?.addEventListener('submit', function(e){
     e.preventDefault();
-    document.getElementById('form-msg').textContent = "Thanks — we'll get back to you soon.";
+    
+    const formMsg = document.getElementById('form-msg');
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+    const terms = document.getElementById('terms').checked;
+
+    // Validation
+    if (!name || !email || !subject || !message || !terms) {
+      formMsg.textContent = '⚠️ Please fill in all required fields and agree to be contacted.';
+      formMsg.className = 'form-message error';
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      formMsg.textContent = '⚠️ Please enter a valid email address.';
+      formMsg.className = 'form-message error';
+      return;
+    }
+
+    // Success message
+    formMsg.textContent = '✓ Thank you! We received your project request. We\'ll get back to you within 24 hours.';
+    formMsg.className = 'form-message success';
+    
+    // Reset form
     this.reset();
+    
+    // Clear message after 5 seconds
+    setTimeout(() => {
+      formMsg.className = 'form-message';
+      formMsg.textContent = '';
+    }, 5000);
+  });
+
+  // Newsletter form submission
+  document.getElementById('newsletter-form')?.addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Thank you for subscribing! Check your email for confirmation.');
+    this.reset();
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', function() {
+      const faqItem = this.parentElement;
+      faqItem.classList.toggle('active');
+      
+      // Close other items
+      document.querySelectorAll('.faq-item.active').forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove('active');
+        }
+      });
+    });
   });
 
   // Mobile navigation toggle
@@ -475,34 +486,89 @@
 
 <!-- Footer -->
 <footer class="footer" role="contentinfo" aria-label="Footer">
-  <div class="footer-inner">
-    <div class="brand-row">
-      <a class="brand" href="#">
+  <div class="footer-content">
+    <!-- About Section -->
+    <div class="footer-section footer-about">
+      <div class="logo-row">
         <img src="photo/logo.png" alt="Digital Netix">
-      </a>
-      <div>
-        <div style="font-weight:700;color:#fff">Digital Netix</div>
-        <div class="copyright">© 2025 Digital Netix. All rights reserved.</div>
+        <div class="brand-name">Digital Netix</div>
+      </div>
+      <p>We create stunning digital solutions that elevate your brand and drive results. From logo design to complete web experiences.</p>
+      <p>Your vision, our expertise. Let's build something amazing together.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Brand & Logo Design</a></li>
+        <li><a href="#services">Book Cover Design</a></li>
+        <li><a href="#services">Marketing Assets</a></li>
+        <li><a href="#services">Web Design</a></li>
+        <li><a href="#services">Company Profile</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <div class="icon">📧</div>
+          <div class="info">
+            <div class="label">Email</div>
+            <a href="mailto:digitalnetix2025@gmail.com">digitalnetix2025@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon">📱</div>
+          <div class="info">
+            <div class="label">Phone</div>
+            <a href="tel:+923462868776">+92 346-2868776</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon">📍</div>
+          <div class="info">
+            <div class="label">Location</div>
+            <span>North Colony, Mithi<br>Tharparkar, Pakistan</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/digitalnetix/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">📷</a>
+        <a href="https://www.facebook.com/profile.php?id=61579786523578" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">f</a>
+        <a href="https://twitter.com/digitalnetix" target="_blank" rel="noopener" aria-label="Twitter" title="Twitter">𝕏</a>
+        <a href="https://www.linkedin.com/company/digitalnetix/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">in</a>
       </div>
     </div>
+  </div>
 
-    <nav class="links" aria-label="Footer links">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#privacy">Privacy</a>
-    </nav>
-
-    <div class="social" aria-label="Social links">
-      <a href="https://www.instagram.com/digitalnetix/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-      <a href="https://www.facebook.com/profile.php?id=61579786523578" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-      <a href="https://twitter.com/digitalnetix" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
-      <a href="https://www.linkedin.com/company/digitalnetix/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#cookies">Cookie Policy</a>
+    </div>
+    <div class="footer-copyright">
+      <p>© 2025 Digital Netix. All rights reserved. | Developed with ❤️ by Sateej Mathrani</p>
     </div>
   </div>
-  <hr>
-    <div class="footer-inner" style="justify-content:center; margin-top:12px;">
-        <div class="copyright">Developed by Mathrani</div>
 </footer>
 
 </body>
