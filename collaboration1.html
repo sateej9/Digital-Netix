@@ -46,22 +46,22 @@
   <div class="collab-grid-2">
     <div class="collab-card">
       <h3>Digital Netix</h3>
-      <p>Creative design and web development agency focused on delivering stunning visual experiences and cutting-edge digital solutions.</p>
+      <p>Creative design agency focused on delivering stunning visual experiences and cutting-edge digital solutions.</p>
       <ul>
         <li>✓ Brand & Logo Design</li>
-        <li>✓ Web Development</li>
+        <!-- <li>✓ Web Development</li> -->
         <li>✓ Marketing Assets</li>
         <li>✓ User Experience Design</li>
       </ul>
     </div>
     <div class="collab-card">
       <h3>Oblix</h3>
-      <p>Leading technology and innovation company specializing in business solutions and digital transformation services.</p>
+      <p>Professional web development company focused on creating innovative, scalable, and user-friendly web solutions.</p>
       <ul>
-        <li>✓ Enterprise Solutions</li>
-        <li>✓ Cloud Technology</li>
-        <li>✓ Business Consulting</li>
-        <li>✓ Digital Strategy</li>
+        <li>✓ Web Development</li>
+        <li>✓ Custom Web Solutions</li>
+        <li>✓ Frontend & Backend Development</li>
+        <li>✓ Web App Development</li>
       </ul>
     </div>
   </div>
@@ -72,24 +72,24 @@
   <h2>Partnership Goals</h2>
   <div class="goals-grid">
     <div class="goal-item">
-      <div class="goal-icon">🎯</div>
-      <h4>Unified Vision</h4>
-      <p>Combining design excellence with technological expertise to deliver comprehensive solutions.</p>
+      <div class="goal-icon">�</div>
+      <h4>Creative Web Design</h4>
+      <p>Combining stunning visual design with web development excellence to create beautiful, functional websites.</p>
+    </div>
+    <div class="goal-item">
+      <div class="goal-icon">💻</div>
+      <h4>Web Development Excellence</h4>
+      <p>Delivering scalable, high-performance web solutions with clean code and best practices.</p>
+    </div>
+    <div class="goal-item">
+      <div class="goal-icon">🌐</div>
+      <h4>Digital Presence</h4>
+      <p>Building strong online presence through innovative web platforms and user-centric design.</p>
     </div>
     <div class="goal-item">
       <div class="goal-icon">🚀</div>
-      <h4>Market Growth</h4>
-      <p>Expanding reach and capabilities to serve larger enterprise clients globally.</p>
-    </div>
-    <div class="goal-item">
-      <div class="goal-icon">💡</div>
-      <h4>Innovation</h4>
-      <p>Combining creative and technical expertise to pioneer innovative solutions.</p>
-    </div>
-    <div class="goal-item">
-      <div class="goal-icon">🤝</div>
-      <h4>Client Success</h4>
-      <p>Delivering exceptional value and measurable results for our shared clients.</p>
+      <h4>Web Transformation</h4>
+      <p>Empowering businesses through modern web technologies and strategic digital solutions.</p>
     </div>
   </div>
 </section>
@@ -170,7 +170,6 @@
     </div>
   </div>
 </section>
-
 <!-- Call to Action -->
 <section class="collaboration-cta">
   <h2>Ready to Partner With Us?</h2>
@@ -251,6 +250,73 @@
       });
     });
   })();
+
+  // Easter Egg: Konami Code
+  const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+  let konamiIndex = 0;
+
+  document.addEventListener('keydown', function(e) {
+    const key = e.key === 'b' || e.key === 'a' ? e.key.toLowerCase() : e.code;
+    
+    if (key === konamiCode[konamiIndex]) {
+      konamiIndex++;
+      
+      if (konamiIndex === konamiCode.length) {
+        activateEasterEgg();
+        konamiIndex = 0;
+      }
+    } else {
+      konamiIndex = 0;
+    }
+  });
+
+  function activateEasterEgg() {
+    // Create easter egg popup
+    const easterEgg = document.createElement('div');
+    easterEgg.className = 'easter-egg-popup';
+    easterEgg.innerHTML = `
+      <div class="easter-egg-content">
+        <h2>🎉 You Found It! 🎉</h2>
+        <p>Welcome to the Secret Alliance of Digital Netix X Oblix</p>
+        <p style="font-size: 0.9rem; margin-top: 16px; color: var(--muted);">Only the most dedicated explorers find our hidden treasure...</p>
+        <button class="easter-egg-close">Close</button>
+      </div>
+    `;
+    document.body.appendChild(easterEgg);
+    
+    // Trigger animation
+    setTimeout(() => easterEgg.classList.add('show'), 10);
+    
+    // Close button
+    easterEgg.querySelector('.easter-egg-close').addEventListener('click', function() {
+      easterEgg.classList.remove('show');
+      setTimeout(() => easterEgg.remove(), 300);
+    });
+    
+    // Close on click outside
+    easterEgg.addEventListener('click', function(e) {
+      if (e.target === easterEgg) {
+        easterEgg.classList.remove('show');
+        setTimeout(() => easterEgg.remove(), 300);
+      }
+    });
+    
+    // Confetti effect
+    createConfetti();
+  }
+
+  function createConfetti() {
+    for (let i = 0; i < 30; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.delay = Math.random() * 0.5 + 's';
+      confetti.style.backgroundColor = ['#FF6F00', '#6A11CB', '#00D4FF', '#FFD700'][Math.floor(Math.random() * 4)];
+      document.body.appendChild(confetti);
+      
+      setTimeout(() => confetti.remove(), 3000);
+    }
+  }
 </script>
 
 </body>

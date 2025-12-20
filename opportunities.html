@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Partnership Opportunities with Digital Netix - Collaborate with us on exciting projects">
+  <title>Explore Opportunities - Digital Netix</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .opportunities-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .opp-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .opp-header h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+
+    .opp-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .opportunities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin: 40px 0;
+    }
+
+    .opportunity-card {
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(255,111,0,0.08), rgba(106,17,203,0.05));
+      border: 1px solid rgba(255,111,0,0.2);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      animation: slideInUp 0.8s ease-out;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .opportunity-card:nth-child(1) { animation-delay: 0.1s; }
+    .opportunity-card:nth-child(2) { animation-delay: 0.2s; }
+    .opportunity-card:nth-child(3) { animation-delay: 0.3s; }
+    .opportunity-card:nth-child(4) { animation-delay: 0.4s; }
+    .opportunity-card:nth-child(5) { animation-delay: 0.5s; }
+    .opportunity-card:nth-child(6) { animation-delay: 0.6s; }
+
+    .opportunity-card:hover {
+      background: linear-gradient(135deg, rgba(255,111,0,0.12), rgba(106,17,203,0.08));
+      border-color: rgba(255,111,0,0.4);
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(255,111,0,0.2);
+    }
+
+    .opp-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .opportunity-card h3 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin: 0 0 12px;
+    }
+
+    .opportunity-card p {
+      color: var(--muted);
+      margin: 0 0 16px;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+
+    .opp-features {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .opp-features li {
+      color: var(--muted);
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .opp-features li:before {
+      content: '✓';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .opp-btn {
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      display: inline-block;
+    }
+
+    .opp-btn:hover {
+      background: transparent;
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .categories-section {
+      margin: 60px 0 40px;
+      text-align: center;
+    }
+
+    .categories-section h2 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin: 0 0 32px;
+    }
+
+    .category-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 30px 0;
+    }
+
+    .category-item {
+      padding: 20px;
+      background: rgba(255,111,0,0.1);
+      border: 1px solid rgba(255,111,0,0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-item:hover {
+      background: rgba(255,111,0,0.15);
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .category-item h4 {
+      color: #fff;
+      margin: 0;
+    }
+
+    .call-to-action {
+      margin-top: 60px;
+      padding: 50px 30px;
+      background: linear-gradient(135deg, rgba(255,111,0,0.1), rgba(106,17,203,0.08));
+      border: 1px solid rgba(255,111,0,0.2);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .call-to-action h2 {
+      color: #fff;
+      font-size: 2rem;
+      margin: 0 0 16px;
+    }
+
+    .call-to-action p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin: 0 0 24px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 14px 32px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .cta-btn.primary:hover {
+      background: #e55a00;
+      transform: translateY(-3px);
+    }
+
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .cta-btn.secondary:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    @media (max-width: 720px) {
+      .opp-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .opportunities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .call-to-action {
+        padding: 30px 20px;
+      }
+
+      .call-to-action h2 {
+        font-size: 1.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<input id="menu-toggle" class="menu-toggle" type="checkbox" aria-hidden="true" />
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a class="brand" href="index.html#home">
+      <img src="photo/logo.png" alt="Digital Netix" style="height: 50px; display:block;">
+    </a>
+    <label class="hamburger" for="menu-toggle" aria-label="Toggle menu">☰</label>
+    <div id="primary-navigation" class="nav-links">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#team">Team</a>
+      <a href="index.html#about">About</a>
+      <a href="collaborations.html">Collaborations</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="cta" href="index.html#contact">Get Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="collaboration-hero">
+  <h1>Explore Partnership Opportunities</h1>
+  <p>Discover how we can collaborate to create something exceptional together</p>
+</section>
+
+<!-- Opportunities Container -->
+<div class="opportunities-container">
+  <!-- Opportunities Grid -->
+  <div class="opportunities-grid">
+    <!-- Web Development Partnership -->
+    <div class="opportunity-card">
+      <div class="opp-icon">💻</div>
+      <h3>Web Development</h3>
+      <p>Partner with us to create cutting-edge web solutions that drive user engagement and business growth.</p>
+      <ul class="opp-features">
+        <li>Full-stack development</li>
+        <li>Custom web applications</li>
+        <li>Responsive design</li>
+        <li>Performance optimization</li>
+      </ul>
+      <a href="index.html#contact" class="opp-btn">Learn More</a>
+    </div>
+
+    <!-- Brand Design Partnership -->
+    <div class="opportunity-card">
+      <div class="opp-icon">🎨</div>
+      <h3>Brand & Design</h3>
+      <p>Elevate your brand with our creative design expertise and strategic visual identity solutions.</p>
+      <ul class="opp-features">
+        <li>Logo design</li>
+        <li>Brand guidelines</li>
+        <li>Visual identity</li>
+        <li>Design systems</li>
+      </ul>
+      <a href="index.html#contact" class="opp-btn">Learn More</a>
+    </div>
+
+    <!-- Digital Marketing Partnership -->
+    <div class="opportunity-card">
+      <div class="opp-icon">📱</div>
+      <h3>Digital Marketing</h3>
+      <p>Amplify your reach with strategic digital marketing assets and social media solutions.</p>
+      <ul class="opp-features">
+        <li>Social media graphics</li>
+        <li>Marketing campaigns</li>
+        <li>Content creation</li>
+        <li>Ad design</li>
+      </ul>
+      <a href="index.html#contact" class="opp-btn">Learn More</a>
+    </div>
+
+    <!-- Content Creation Partnership -->
+    <div class="opportunity-card">
+      <div class="opp-icon">✍️</div>
+      <h3>Content Creation</h3>
+      <p>Engage your audience with compelling visual content and creative storytelling solutions.</p>
+      <ul class="opp-features">
+        <li>Visual content</li>
+        <li>Copywriting</li>
+        <li>Photography direction</li>
+        <li>Brand storytelling</li>
+      </ul>
+      <a href="index.html#contact" class="opp-btn">Learn More</a>
+    </div>
+
+    <!-- Agency Partnership -->
+    <div class="opportunity-card">
+      <div class="opp-icon">🤝</div>
+      <h3>Agency Partnership</h3>
+      <p>White-label services and reseller opportunities for agencies looking to expand their offerings.</p>
+      <ul class="opp-features">
+        <li>White-label design</li>
+        <li>Reseller programs</li>
+        <li>Resource sharing</li>
+        <li>Revenue sharing</li>
+      </ul>
+      <a href="index.html#contact" class="opp-btn">Learn More</a>
+    </div>
+
+    <!-- Startup Mentorship -->
+    <div class="opportunity-card">
+      <div class="opp-icon">🚀</div>
+      <h3>Startup Support</h3>
+      <p>Help for early-stage startups to establish their digital presence and brand identity.</p>
+      <ul class="opp-features">
+        <li>Brand launch</li>
+        <li>Web presence</li>
+        <li>Pitch deck design</li>
+        <li>MVP development</li>
+      </ul>
+      <a href="index.html#contact" class="opp-btn">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <h2>Partnership Categories</h2>
+    <div class="category-list">
+      <div class="category-item">
+        <h4>💼 B2B</h4>
+        <p>Business-to-business solutions</p>
+      </div>
+      <div class="category-item">
+        <h4>🎯 E-commerce</h4>
+        <p>Online store solutions</p>
+      </div>
+      <div class="category-item">
+        <h4>🏢 Enterprise</h4>
+        <p>Large-scale projects</p>
+      </div>
+      <div class="category-item">
+        <h4>📱 Mobile</h4>
+        <p>App and mobile solutions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="call-to-action">
+    <h2>Ready to Partner With Us?</h2>
+    <p>Get in touch today to discuss your partnership opportunities and how we can work together to achieve your goals.</p>
+    <div class="cta-buttons">
+      <a href="index.html#contact" class="cta-btn primary">Start Partnership</a>
+      <a href="collaboration1.html" class="cta-btn secondary">View Our Work</a>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo" aria-label="Footer">
+  <div class="footer-content">
+    <!-- About Section -->
+    <div class="footer-section footer-about">
+      <div class="logo-row">
+        <img src="photo/logo.png" alt="Digital Netix">
+        <div class="brand-name">Digital Netix</div>
+      </div>
+      <p>We create stunning digital solutions that elevate your brand and drive results. From logo design to complete web experiences.</p>
+      <p>Your vision, our expertise. Let's build something amazing together.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="index.html#services">Brand & Logo Design</a></li>
+        <li><a href="index.html#services">Book Cover Design</a></li>
+        <li><a href="index.html#services">Marketing Assets</a></li>
+        <li><a href="index.html#services">Web Design</a></li>
+        <li><a href="index.html#services">Company Profile</a></li>
+        <li><a href="index.html#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <div class="icon">📧</div>
+          <div class="info">
+            <div class="label">Email</div>
+            <a href="mailto:digitalnetix2025@gmail.com">digitalnetix2025@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon">📱</div>
+          <div class="info">
+            <div class="label">Phone</div>
+            <a href="tel:+923462868776">+92 346-2868776</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon">📍</div>
+          <div class="info">
+            <div class="label">Location</div>
+            <span>North Colony, Mithi<br>Tharparkar, Pakistan</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/digitalnetix/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">📷</a>
+        <a href="https://www.facebook.com/profile.php?id=61579786523578" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">f</a>
+        <a href="https://twitter.com/digitalnetix" target="_blank" rel="noopener" aria-label="Twitter" title="Twitter">𝕏</a>
+        <a href="https://www.linkedin.com/company/digitalnetix/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">in</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="cookies.html">Cookie Policy</a>
+    </div>
+    <div class="footer-copyright">
+      <p>© 2025 Digital Netix. All rights reserved. | Developed with ❤️ by Sateej Mathrani</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile navigation toggle
+  (function(){
+    const nav = document.querySelector('.nav');
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', function() {
+        nav.classList.toggle('open');
+      });
+    }
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
